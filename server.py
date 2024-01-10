@@ -13,6 +13,7 @@ import socket
 
 #initializare pygame
 pg.init()
+pg.display.set_caption("Pong")
 #creeaza un ecran 700x700
 screen = pg.display.set_mode((700, 700))
 clock = pg.time.Clock()
@@ -105,7 +106,7 @@ def collision():
             b.speed_y = math.sin(math.radians(angle)) * b.speed 
 
     #se verifica daca mingea iese din ecran (stanga sau dreapta ecranului)
-    if b_pos[0] - 5 <= 0 and b_pos[0] + 5 >= -10:
+    if b_pos[0] - 5 <= 0: #and b_pos[0] + 5 >= -10:
         player_2.score += 1
 
         #se reseteaza pozitiile playerilor si mingii si se modifica scorul
@@ -121,7 +122,7 @@ def collision():
         conn.sendall("o2!".encode("utf-8"))
         stop_timer = 100
 
-    elif b_pos[0] + 5 >= screen.get_width() and b_pos[0] + 5 <= screen.get_width() + 10:
+    elif b_pos[0] + 5 >= screen.get_width(): #and b_pos[0] + 5 <= screen.get_width() + 10:
         player_1.score += 1
 
         player_1.y = (screen.get_height() - player_1.height ) / 2

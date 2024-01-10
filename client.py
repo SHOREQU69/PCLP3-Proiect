@@ -10,6 +10,7 @@ import socket
 
 #initializare pygame
 pg.init()
+pg.display.set_caption("Pong")
 #creeaza un ecran 700x700
 screen = pg.display.set_mode((700, 700))
 clock = pg.time.Clock()
